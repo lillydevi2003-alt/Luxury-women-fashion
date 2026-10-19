@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ÉLORA Couture · Ball Gowns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --plum: #3c1524;
+    --plum-btn: #552a3a;
+    --gold: #755a29;
+    --body: #504347;
+    --muted: #827377;
+    --blush: #f2d9df;
+    --cream: #fff8f8;
+    --white: #ffffff;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    background: #fdf7f8;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 2.75px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .display {
+    font-family: var(--serif);
+    color: var(--plum);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--plum-btn);
+    color: var(--white);
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    transition: opacity .2s;
+  }
+  .btn:hover { opacity: .88; }
+  .link-arrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--plum);
+    border-bottom: 1px solid var(--plum);
+    padding-bottom: 3px;
+  }
+  .section-head { text-align: center; max-width: 672px; margin: 0 auto; }
+  .section-head h2 { font-size: 44px; margin: 6px 0 12px; }
+  .section-head p { font-size: 16px; }
+
+  /* ---------- Header ---------- */
+  .topbar {
+    background: var(--plum);
+    color: #f5e6ea;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px 12px;
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(253,247,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(60,21,36,0.06);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 80px;
+  }
+  .logo { font-family: var(--serif); font-size: 28px; color: var(--plum); letter-spacing: 0.08em; }
+  .logo small { display: block; font-family: var(--sans); font-size: 9px; letter-spacing: 2.5px; color: var(--gold); }
+  .nav { display: flex; gap: 28px; font-size: 13px; color: var(--body); }
+  .nav a:hover { color: var(--plum); }
+  .header-icons { display: flex; gap: 18px; font-size: 13px; color: var(--plum); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #f7e3e8 0%, #f2d9df 45%, #fbeee6 100%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 384px; height: 384px;
+    border-radius: 50%;
+    background: rgba(255,222,170,0.35);
+    filter: blur(60px);
+    top: -128px; left: -128px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 0 100px;
+    position: relative;
+  }
+  .hero h1 { font-size: 72px; }
+  .hero h1 span { display: block; font-style: italic; color: var(--gold); }
+  .hero p { font-size: 16px; max-width: 512px; margin: 24px 0 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.5px;
+  }
+  .hero-visual {
+    position: relative;
+    height: 640px;
+    border-radius: 2px;
+    background:
+      linear-gradient(160deg, rgba(60,21,36,0.05), rgba(60,21,36,0.35)),
+      radial-gradient(circle at 30% 20%, #fbe6ea, #d9a9b8 60%, #7a4a5c);
+    box-shadow: 0 24px 60px rgba(60,21,36,0.18);
+  }
+  .hero-visual .badge {
+    position: absolute; left: 20px; bottom: 20px;
+    background: var(--cream);
+    padding: 18px 22px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 8px 24px rgba(60,21,36,0.12);
+    max-width: 320px;
+  }
+  .hero-visual .badge strong { display: block; font-family: var(--serif); font-weight: 400; color: var(--plum); font-size: 18px; }
+  .hero-visual .badge small { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+  .seal {
+    position: absolute; right: 24px; top: 24px;
+    width: 112px; height: 112px; border-radius: 50%;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); color: var(--plum); font-size: 14px; text-align: center;
+    box-shadow: 0 8px 24px rgba(60,21,36,0.12);
+  }
+
+  /* ---------- Manifesto ---------- */
+  .manifesto { padding: 100px 0; background: #f7e6ea; }
+  .manifesto-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .manifesto h2 { font-size: 52px; margin: 14px 0 24px; }
+  .manifesto p { font-size: 16px; max-width: 576px; margin-bottom: 18px; }
+  .manifesto-box {
+    background: var(--cream);
+    padding: 36px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--plum);
+  }
+  .manifesto-box cite { display: block; margin-top: 18px; font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--muted); letter-spacing: 0.5px; }
+  .savoir {
+    margin-top: 40px;
+    display: flex; gap: 14px; align-items: center;
+    color: var(--gold); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  /* ---------- Collections bento ---------- */
+  .collections { padding: 100px 0; }
+  .bento {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 56px;
+    height: 620px;
+  }
+  .tile { position: relative; overflow: hidden; color: var(--white); }
+  .tile .bg { position: absolute; inset: 0; transition: transform .6s; }
+  .tile:hover .bg { transform: scale(1.04); }
+  .tile .copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 32px; background: linear-gradient(to top, rgba(40,12,24,.75), rgba(40,12,24,0)); }
+  .tile .eyebrow { color: #f3d9a6; }
+  .tile h3 { font-family: var(--serif); font-weight: 400; font-size: 36px; margin: 8px 0; }
+  .tile p { font-size: 14px; opacity: .9; max-width: 440px; }
+  .tile-large { grid-row: 1 / span 3; }
+  .tile-large .copy { padding: 48px; }
+  .tile-b { background: linear-gradient(160deg, #6d3b4e, #3c1524); }
+  .tile-c { background: linear-gradient(160deg, #f4d7dd, #d69aab); }
+  .tile-d { background: linear-gradient(160deg, #f1d9a8, #b98d4f); }
+  .tile .small-btn { margin-top: 12px; display: inline-block; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: var(--white); border-bottom: 1px solid var(--white); padding-bottom: 3px; }
+
+  /* ---------- Campaign split ---------- */
+  .campaign { display: grid; grid-template-columns: 1fr 1fr; background: var(--cream); margin: 0 20px; }
+  .campaign-visual {
+    min-height: 580px;
+    background:
+      linear-gradient(180deg, rgba(60,21,36,0) 40%, rgba(60,21,36,0.55)),
+      radial-gradient(ellipse at 50% 30%, #f9e4ea, #c98ea1 55%, #5a2a3d);
+    position: relative;
+  }
+  .campaign-visual .caption { position: absolute; left: 24px; bottom: 24px; color: var(--white); }
+  .campaign-visual .caption strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 22px; margin-top: 6px; }
+  .campaign-copy { padding: 90px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+  .campaign-copy h2 { font-size: 48px; margin: 14px 0 22px; }
+  .campaign-copy p { font-size: 16px; margin-bottom: 28px; }
+  .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 8px 0 36px; }
+  .highlights h4 { font-size: 14px; color: var(--plum); font-weight: 600; margin-bottom: 4px; }
+  .highlights p { font-size: 13px; margin: 0; }
+  .campaign-actions { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+
+  /* ---------- Product grid ---------- */
+  .products { padding: 100px 0; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .card { background: var(--white); position: relative; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .card .img {
+    position: relative; height: 389px;
+    background: linear-gradient(170deg, var(--c1), var(--c2));
+  }
+  .card .tag {
+    position: absolute; left: 12px; top: 12px;
+    background: var(--cream); color: var(--plum);
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    padding: 5px 10px;
+  }
+  .card .heart {
+    position: absolute; right: 12px; top: 12px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--plum); font-size: 14px; border: none; cursor: pointer;
+  }
+  .card .info { padding: 16px 16px 20px; }
+  .card h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; color: var(--plum); line-height: 1.3; min-height: 52px; }
+  .card .price { font-size: 16px; color: var(--plum); font-weight: 600; margin-top: 6px; }
+  .card .meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .card .add {
+    margin-top: 14px; width: 100%;
+    background: transparent; border: 1px solid var(--plum-btn); color: var(--plum-btn);
+    padding: 11px; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; cursor: pointer;
+  }
+  .card .add:hover { background: var(--plum-btn); color: var(--white); }
+  .c1 { --c1: #f9e1e7; --c2: #d89fb0; }
+  .c2 { --c1: #f4e3c8; --c2: #c79a4c; }
+  .c3 { --c1: #4a2539; --c2: #1d0a14; }
+  .c4 { --c1: #f2cfd6; --c2: #b06e83; }
+  .c5 { --c1: #d8d4dc; --c2: #6f6878; }
+  .c6 { --c1: #f7efe4; --c2: #d8c4a4; }
+  .c7 { --c1: #6e1f33; --c2: #2d0a15; }
+  .c8 { --c1: #f5d89a; --c2: #8c5c22; }
+  .view-all { display: flex; justify-content: center; margin-top: 40px; }
+
+  /* ---------- Occasions ---------- */
+  .occasions { padding: 100px 0; background: #f7e6ea; }
+  .occasion-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px;
+  }
+  .occasion { position: relative; height: 497px; overflow: hidden; color: var(--white); }
+  .occasion .bg { position: absolute; inset: 0; background: linear-gradient(170deg, var(--c1), var(--c2)); transition: transform .6s; }
+  .occasion:hover .bg { transform: scale(1.04); }
+  .occasion .copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 24px; background: linear-gradient(to top, rgba(40,12,24,.8), rgba(40,12,24,0)); }
+  .occasion .eyebrow { color: #f3d9a6; }
+  .occasion h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; margin: 6px 0; }
+  .occasion p { font-size: 13px; opacity: .92; }
+  .occasion .small-btn { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; border-bottom: 1px solid var(--white); padding-bottom: 3px; }
+
+  /* ---------- Value props ---------- */
+  .values { padding: 100px 0; text-align: center; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 64px; }
+  .value { padding: 0 20px; }
+  .value .icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--cream); margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 22px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .value h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--plum); margin-bottom: 14px; }
+  .value p { font-size: 14px; max-width: 328px; margin: 0 auto; }
+
+  /* ---------- Reviews ---------- */
+  .reviews { padding: 100px 0; background: #fbf3f5; }
+  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .review { background: var(--white); padding: 32px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .stars { color: var(--gold); letter-spacing: 3px; font-size: 13px; }
+  .review blockquote { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: var(--plum); margin: 16px 0 24px; font-style: italic; }
+  .review .who { border-top: 1px solid rgba(60,21,36,0.1); padding-top: 14px; }
+  .review .who strong { display: block; font-size: 12px; letter-spacing: 1.5px; color: var(--plum); }
+  .review .who span { font-size: 12px; color: var(--muted); }
+
+  /* ---------- Newsletter / lead form ---------- */
+  .signup {
+    position: relative;
+    background: #f5e3e8;
+    padding: 100px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .signup::after {
+    content: "";
+    position: absolute; right: -40px; top: -48px;
+    width: 256px; height: 256px; border-radius: 50%;
+    background: rgba(255,222,170,0.4); filter: blur(30px);
+  }
+  .signup-inner { position: relative; max-width: 896px; margin: 0 auto; }
+  .signup h2 { font-size: 56px; margin: 6px 0 16px; letter-spacing: -0.02em; }
+  .signup > .signup-inner > p.lead { font-size: 16px; max-width: 576px; margin: 0 auto 32px; }
+  .lead-form {
+    display: flex; flex-direction: column; gap: 12px;
+    max-width: 560px; margin: 0 auto;
+  }
+  .lead-form .row { display: flex; gap: 4px; }
+  .lead-form input {
+    flex: 1 1 0;
+    min-width: 0;
+    background: var(--cream);
+    border: none;
+    padding: 15px 20px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--plum);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    outline: none;
+  }
+  .lead-form input::placeholder { color: var(--muted); }
+  .lead-form input:focus { box-shadow: 0 0 0 2px rgba(85,42,58,.35); }
+  .lead-form .btn { justify-content: center; white-space: nowrap; }
+  .lead-form .btn:disabled { opacity: .6; cursor: default; }
+  .audit-btn {
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 24px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    align-self: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  }
+  .form-status { min-height: 20px; font-size: 13px; color: var(--muted); }
+  .form-status.ok { color: #2f6b3a; }
+  .form-status.err { color: #9b2c3e; }
+  .fineprint { font-size: 11px; color: var(--muted); letter-spacing: 0.2px; margin-top: 16px; }
+
+  /* ---------- Footer ---------- */
+  .footer { background: #f9ecef; padding: 80px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .footer .logo { margin-bottom: 14px; }
+  .footer .tagline { font-family: var(--serif); font-style: italic; color: var(--plum); font-size: 18px; margin-bottom: 12px; }
+  .footer .about { font-size: 13px; max-width: 440px; margin-bottom: 24px; }
+  .footer h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--plum); margin-bottom: 18px; font-weight: 600; }
+  .footer ul { list-style: none; }
+  .footer li { font-size: 13px; margin-bottom: 10px; }
+  .footer li a:hover { color: var(--plum); }
+  .footer-bottom {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(60,21,36,0.1);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    font-size: 12px; color: var(--muted);
+  }
+  .socials { display: flex; gap: 18px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-grid, .manifesto-grid, .campaign { grid-template-columns: 1fr; }
+    .campaign { margin: 0; }
+    .campaign-copy { padding: 60px 32px; }
+    .hero h1 { font-size: 56px; }
+    .bento { height: auto; grid-template-rows: auto; grid-template-columns: 1fr; }
+    .tile-large { grid-row: auto; min-height: 420px; }
+    .tile { min-height: 300px; }
+    .occasion-grid, .review-grid, .values-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav { display: none; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 42px; }
+    .hero-visual { height: 420px; }
+    .section-head h2, .manifesto h2, .campaign-copy h2, .signup h2 { font-size: 36px; }
+    .product-grid, .occasion-grid, .review-grid, .values-grid, .highlights { grid-template-columns: 1fr; }
+    .campaign-copy { padding: 48px 24px; }
+    .lead-form .row { flex-direction: column; }
+    .lead-form input, .lead-form .btn { width: 100%; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .header-icons { display: none; }
+    .occasion { height: 420px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">Complimentary virtual concierge sessions · Worldwide shipping</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">ÉLORA<small>COUTURE</small></a>
+    <nav class="nav">
+      <a href="#collections">Collections</a>
+      <a href="#products">Ball Gowns</a>
+      <a href="#occasions">Occasions</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="header-icons">
+      <span>Search</span>
+      <span>Account</span>
+      <span>Bag (0)</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">ÉLORA COUTURE · COLLECTION 2026</div>
+      <h1 class="display" style="margin-top:14px">Your Moment.<span>Your Fairytale.</span></h1>
+      <p>Discover extraordinary ball gowns designed to make every entrance unforgettable. Handcrafted with cascading gossamer tulle, antique French Chantilly lace, and sculpted architectural corsetry.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn">Discover the Collection</a>
+        <a href="#occasions" class="link-arrow">Find Your Dream Gown →</a>
+      </div>
+      <div class="hero-badges">
+        <span>Hand-finished limited editions</span>
+        <span>·</span>
+        <span>Made-to-measure bespoke concierge</span>
+      </div>
+    </div>
+    <div class="hero-visual" role="img" aria-label="Look 01 Runway: Aurora Blush Tulle Gown">
+      <div class="seal">HAUTE<br>COUTURE<br><small>ATELIER<br>PARIS·DELHI</small></div>
+      <div class="badge">
+        <div>
+          <small>Look 01 · Runway</small>
+          <strong>Aurora Blush Tulle Gown</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding-bottom:24px;font-size:11px;letter-spacing:2px;color:var(--muted)">SCROLL ↓</div>
+</section>
+
+<!-- Manifesto -->
+<section class="manifesto" id="atelier">
+  <div class="wrap manifesto-grid">
+    <div>
+      <div class="eyebrow">The Art of Dressing Beautifully</div>
+      <h2 class="display">Made for Moments That Become Memories.</h2>
+      <p>From the first invitation to the final dance, discover gowns that celebrate your individuality and make every ceremonial occasion feel extraordinary. We believe high-fashion ball gowns should not exist solely inside museum archives—they belong under glistening chandeliers, twirling upon grand ballrooms, and capturing forever memories.</p>
+      <div class="savoir"><span>Savoir-Faire</span><span>·</span><span>Over 140 Hours of Hand Embellishment</span></div>
+    </div>
+    <div class="manifesto-box">
+      “Every gown we cut tells an intimate story of feminine grandeur. When you step into an ÉLORA gown, posture transforms, breathing deepens, and your entrance commands the room with pure poetic grace.”
+      <cite>HÉLÈNE LAURENT &amp; ADITI VERMA<br>Co-Founders &amp; Atelier Creative Directors</cite>
+    </div>
+  </div>
+</section>
+
+<!-- Collections bento -->
+<section class="collections" id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Curated Runway Edits</div>
+      <h2 class="display">Shop by Collection</h2>
+      <p>Explore seasonal monographs crafted around mood, silhouette drama, and imperial textile palettes.</p>
+    </div>
+    <div class="bento">
+      <a href="#products" class="tile tile-large">
+        <div class="bg" style="background: radial-gradient(ellipse at 40% 25%, #fbe6ea, #c98ea1 55%, #4a1e30);"></div>
+        <div class="copy">
+          <div class="eyebrow">Signature Edit</div>
+          <h3>The Princess Edit</h3>
+          <p>Romantic silhouettes, voluminous layered tulle, and unforgettable fairy-tale elegance designed for modern royalty.</p>
+          <span class="small-btn">Explore Collection →</span>
+        </div>
+      </a>
+      <a href="#products" class="tile tile-b" style="grid-column:2">
+        <div class="bg"></div>
+        <div class="copy">
+          <div class="eyebrow">Nocturne Edition</div>
+          <h3>Midnight Elegance</h3>
+          <p>Statement gowns for nights that deserve to be remembered.</p>
+          <span class="small-btn">Discover →</span>
+        </div>
+      </a>
+      <a href="#products" class="tile tile-c" style="grid-column:2">
+        <div class="bg"></div>
+        <div class="copy" style="background:linear-gradient(to top,rgba(60,21,36,.6),rgba(60,21,36,0));">
+          <h3>Blush Romance</h3>
+          <p>Soft shades &amp; modern femininity.</p>
+          <span class="small-btn">Shop Edit →</span>
+        </div>
+      </a>
+      <a href="#products" class="tile tile-d" style="grid-column:2">
+        <div class="bg"></div>
+        <div class="copy" style="background:linear-gradient(to top,rgba(60,21,36,.6),rgba(60,21,36,0));">
+          <h3>Golden Hour</h3>
+          <p>Champagne shimmer &amp; silk luster.</p>
+          <span class="small-btn">Shop Edit →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Campaign split -->
+<section>
+  <div class="campaign">
+    <div class="campaign-visual" role="img" aria-label="Château de Versailles Gala campaign portrait">
+      <div class="caption">
+        <div class="eyebrow" style="color:#f3d9a6">Château de Versailles Gala</div>
+        <strong>Look 14 · Autumn Couturier Presentation</strong>
+      </div>
+    </div>
+    <div class="campaign-copy">
+      <div class="eyebrow">The Signature Collection · Limited Atelier Release</div>
+      <h2 class="display">Not Just a Dress.<br>A Moment.</h2>
+      <p>Find the gown that captures your essence, celebrates your story, and makes your next unforgettable moment entirely yours. Designed with invisible inner corsetry, hand-molded cups, and customizable hem length options tailored precisely for your heels.</p>
+      <div class="highlights">
+        <div>
+          <h4>Hidden Boning Architecture</h4>
+          <p>Engineered comfort without pinching</p>
+        </div>
+        <div>
+          <h4>Custom Hem Sizing</h4>
+          <p>Pre-adjusted to your exact heel height</p>
+        </div>
+      </div>
+      <div class="campaign-actions">
+        <a href="#products" class="btn">Explore Signature Gowns</a>
+        <a href="#" class="link-arrow">View Atelier Film</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product grid -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Atelier Favourites</div>
+      <h2 class="display">Most-Loved Gowns</h2>
+      <p>The iconic silhouettes our clientele can’t stop dreaming about. Hand-tailored with architectural corsetry and made-to-measure precision.</p>
+    </div>
+    <div class="product-grid">
+      <article class="card">
+        <div class="img c1"><span class="tag">Bestseller</span><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Aurora Blush Tulle Ball Gown</h3>
+          <div class="price">₹12,999</div>
+          <div class="meta">Blush Pink · Tulle &amp; Crystal</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c2"><span class="tag">New Arrival</span><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Celeste Champagne Satin Gown</h3>
+          <div class="price">₹15,499</div>
+          <div class="meta">Champagne Gold · Duchess Satin</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c3"><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Midnight Royal Velvet Gown</h3>
+          <div class="price">₹18,999</div>
+          <div class="meta">Midnight Blue · Plush Silk Velvet</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c4"><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Rosewater Floral Couture Gown</h3>
+          <div class="price">₹14,499</div>
+          <div class="meta">Dusty Rose · 3D Botanical Appliqué</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c5"><span class="tag">Limited Edition</span><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Starlight Silver Embellished Gown</h3>
+          <div class="price">₹21,999</div>
+          <div class="meta">Silver Shimmer · Crystal Bodice</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c6"><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Ivory Dream Off-Shoulder Gown</h3>
+          <div class="price">₹16,999</div>
+          <div class="meta">Warm Ivory · Silk Organza</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c7"><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Burgundy Royal Ball Gown</h3>
+          <div class="price">₹17,499</div>
+          <div class="meta">Deep Burgundy · Structured Satin</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="img c8"><button class="heart" aria-label="Save">♡</button></div>
+        <div class="info">
+          <h3>Golden Hour Sequin Gown</h3>
+          <div class="price">₹19,999</div>
+          <div class="meta">Champagne &amp; Gold · Cathedral Train</div>
+          <button class="add">Select Size &amp; Add</button>
+        </div>
+      </article>
+    </div>
+    <div class="view-all">
+      <a href="#" class="link-arrow">View All Ball Gowns (28 Styles) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Occasions -->
+<section class="occasions" id="occasions">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Curated Silhouettes</div>
+      <h2 class="display">Find Your Perfect Occasion Gown</h2>
+      <p>Whether stepping into a debutante ball or honoring your wedding reception, discover gowns attuned to the ceremonial dress codes of the world.</p>
+    </div>
+    <div class="occasion-grid">
+      <a href="#" class="occasion"><div class="bg" style="--c1:#f7d9e0;--c2:#b8687f"></div>
+        <div class="copy"><div class="eyebrow">First Entrances</div><h3>Prom Night &amp; Debutante Balls</h3><p>Youthful romance &amp; voluminous silhouettes</p><span class="small-btn">Explore Styles →</span></div></a>
+      <a href="#" class="occasion"><div class="bg" style="--c1:#f4e2bd;--c2:#8e6a34"></div>
+        <div class="copy"><div class="eyebrow">Pre-Wedding Grandeur</div><h3>Engagement Celebrations</h3><p>Luminous champagne &amp; rose gold opulence</p><span class="small-btn">Explore Styles →</span></div></a>
+      <a href="#" class="occasion"><div class="bg" style="--c1:#fbeef1;--c2:#c99aa8"></div>
+        <div class="copy"><div class="eyebrow">The Second Entrance</div><h3>Wedding Receptions</h3><p>Grand ivory, blush, and regal reception silhouettes</p><span class="small-btn">Explore Styles →</span></div></a>
+      <a href="#" class="occasion"><div class="bg" style="--c1:#3a1a2a;--c2:#12050b"></div>
+        <div class="copy"><div class="eyebrow">State &amp; Charity</div><h3>Gala Evenings</h3><p>Deep jewel tones, rich velvets, and star embellishments</p><span class="small-btn">Explore Styles →</span></div></a>
+      <a href="#" class="occasion"><div class="bg" style="--c1:#f6d3dc;--c2:#a0607a"></div>
+        <div class="copy"><div class="eyebrow">Milestone Birthdays</div><h3>Sweet 16, Quinceañera &amp; 21st</h3><p>Dramatic volume, romantic pastels &amp; statement sleeves</p><span class="small-btn">Explore Styles →</span></div></a>
+      <a href="#" class="occasion"><div class="bg" style="--c1:#2b2b33;--c2:#0c0c10"></div>
+        <div class="copy"><div class="eyebrow">Strict Dress Codes</div><h3>Formal Black-Tie Events</h3><p>Architectural noir, clean necklines &amp; majestic trains</p><span class="small-btn">Explore Styles →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Value props -->
+<section class="values">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The ÉLORA Difference</div>
+      <h2 class="display">Couture Standard</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value">
+        <div class="icon">◇</div>
+        <h3>Thoughtfully Curated</h3>
+        <p>Discover silhouettes and shades selected exclusively for memorable occasions. Never mass-produced, each capsule is limited to strictly 50 creations worldwide.</p>
+      </div>
+      <div class="value">
+        <div class="icon">✂</div>
+        <h3>Your Fit, Your Way</h3>
+        <p>Complimentary virtual concierge sessions with master corsetières ensure your bust, waist, and hem length are calibrated down to the exact millimeter.</p>
+      </div>
+      <div class="value">
+        <div class="icon">❦</div>
+        <h3>Beautifully Presented</h3>
+        <p>Delivered inside our signature archival dust box with padded silk hanger, garment travel cover, and a personalized certificate signed by your seamstress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Real Celebrations</div>
+      <h2 class="display">Love Letters to ÉLORA</h2>
+      <p>Read genuine memoirs from clients who wore ÉLORA to prestigious galas, private balls, and fairytale receptions.</p>
+    </div>
+    <div class="review-grid">
+      <figure class="review">
+        <div class="stars">★★★★★</div>
+        <blockquote>“The tulle movement was breathtaking under the ballroom chandeliers. I felt like royalty the entire evening. Strangers kept approaching me all night asking if it was custom Parisian haute couture.”</blockquote>
+        <figcaption class="who"><strong>ARIA M.</strong><span>Mumbai · Wore the Aurora Blush Tulle Gown</span></figcaption>
+      </figure>
+      <figure class="review">
+        <div class="stars">★★★★★</div>
+        <blockquote>“The corsetry was both supportive and incredibly comfortable for a 6-hour gala reception. No adjusting, no pulling—it sat like a second skin while holding the grandest ball skirt.”</blockquote>
+        <figcaption class="who"><strong>NATASHA K.</strong><span>New Delhi · Wore the Midnight Royal Velvet Gown</span></figcaption>
+      </figure>
+      <figure class="review">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Arrived in the most gorgeous keepsake archival box with white silk ribbon. Unboxing was an emotional event in itself! Everyone asked where I found this fairytale dream.”</blockquote>
+        <figcaption class="who"><strong>RHEA S.</strong><span>Bengaluru · Wore the Celeste Champagne Satin Gown</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Lead form (3 fields: name, email, phone) -->
+<section class="signup" id="signup">
+  <div class="signup-inner">
+    <div class="eyebrow">The Atelier Society</div>
+    <h2 class="display">A Little Romance in Your Inbox</h2>
+    <p class="lead">Be the first to discover new seasonal gown releases, private atelier trunk show invitations, and couture styling previews.</p>
+
+    <form id="leadForm" class="lead-form" novalidate>
+      <div class="row">
+        <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required />
+      </div>
+      <div class="row">
+        <input type="email" id="email" name="email" placeholder="Enter your private email address" autocomplete="email" required />
+        <button type="submit" class="btn" id="submitBtn">Join the List</button>
+      </div>
+      <div class="row">
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" required />
+      </div>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+
+    <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener" class="audit-btn" id="auditBtn" style="display:inline-block;margin-top:8px;">Free Audit · ₹1</a>
+
+    <p class="fineprint">Discretion assured. We honor your privacy and send strictly curated salon dispatches.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">ÉLORA<small>COUTURE</small></div>
+        <div class="tagline">“Every Woman Deserves Her Fairytale”</div>
+        <p class="about">Born from Parisian atelier couture traditions and modern romantic grandeur, ÉLORA crafts bespoke ceremonial silhouettes, imperial ball gowns, and regal evening marvels for the most momentous galas.</p>
+        <div class="socials"><span>Instagram</span><span>Pinterest</span><span>YouTube</span></div>
+      </div>
+      <div>
+        <h4>The Collections</h4>
+        <ul>
+          <li><a href="#collections">The Princess Edit</a></li>
+          <li><a href="#collections">Midnight Elegance</a></li>
+          <li><a href="#collections">Blush Romance</a></li>
+          <li><a href="#collections">Golden Hour Capsule</a></li>
+          <li><a href="#products">Gala &amp; Reception</a></li>
+          <li><a href="#products">Haute Couture Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atelier Services</h4>
+        <ul>
+          <li><a href="#">Bespoke Sizing &amp; Fit Guide</a></li>
+          <li><a href="#">Private Atelier Appointments</a></li>
+          <li><a href="#">Bridal Gown Concierge</a></li>
+          <li><a href="#">Care &amp; Preservation</a></li>
+          <li><a href="#">Silk &amp; Tulle Swatch Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Client Care</h4>
+        <ul>
+          <li><a href="#">Orders &amp; Global Shipping</a></li>
+          <li><a href="#">Returns &amp; Exchanges</a></li>
+          <li><a href="#">Frequently Asked Questions</a></li>
+          <li><a href="#">Track Your Gown</a></li>
+          <li><a href="#">Contact Private Stylist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ÉLORA Couture. All rights reserved.</span>
+      <span>Privacy · Terms · Shipping</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Apps Script Web App URL (deployed)
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTDafimQNSCpk_0tIvzaMOjr5h0TXLTsvczDLDw_dz0fh-qN_uoOjma6_FKvKRikh9wg/exec";
+
+  const form = document.getElementById("leadForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusEl = document.getElementById("formStatus");
+
+  function setStatus(msg, type) {
+    statusEl.textContent = msg;
+    statusEl.className = "form-status " + (type || "");
+  }
+
+  function showSuccess() {
+    setStatus("Thank you. Your invitation to the atelier society is on its way.", "ok");
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Join the List";
+  }
+
+  function showError() {
+    setStatus("Something went wrong. Please try again.", "err");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Join the List";
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!name || !email || !phone) {
+      setStatus("Please fill in name, email and phone.", "err");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    setStatus("");
+
+    const url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(function () { showSuccess(); })
+      .catch(function () { showError(); });
+  });
+</script>
+
+</body>
+</html>
